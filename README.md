@@ -7,4 +7,4 @@
 
 
     this is my script for run this site locally
-    
+    "build":"tsc"
