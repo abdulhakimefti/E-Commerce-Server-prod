@@ -11,20 +11,23 @@ const inventorySchema = new Schema<TInventory>({
   inStock: { type: Boolean, required: [true, 'InStock is required'] },
 })
 
-const productSchema = new Schema<TProduct>({
-  name: { type: String, required: [true, 'Name is required'] },
-  description: { type: String, required: [true, 'Description is Required'] },
-  price: { type: Number, required: [true, 'Price is required'] },
-  category: { type: String, required: [true, 'Category is required'] },
-  tags: { type: [String], required: [true, 'Tags are required'] },
-  variants: {
-    type: [variantsSchema],
-    required: [true, 'Variants are required'],
+const productSchema = new Schema<TProduct>(
+  {
+    name: { type: String, required: [true, 'Name is required'] },
+    description: { type: String, required: [true, 'Description is Required'] },
+    price: { type: Number, required: [true, 'Price is required'] },
+    category: { type: String, required: [true, 'Category is required'] },
+    tags: { type: [String], required: [true, 'Tags are required'] },
+    variants: {
+      type: [variantsSchema],
+      required: [true, 'Variants are required'],
+    },
+    inventory: {
+      type: inventorySchema,
+      required: [true, 'Inventory is required'],
+    },
   },
-  inventory: {
-    type: inventorySchema,
-    required: [true, 'Inventory is required'],
-  },
-},{versionKey:false})
+  { versionKey: false },
+)
 
 export const Product = model<TProduct>('Product', productSchema)

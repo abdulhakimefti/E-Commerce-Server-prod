@@ -12,9 +12,8 @@ const getAllOrderFromDB = async () => {
 }
 
 const getOrderOneFromDB = async (q: string) => {
+  const result = await Order.find({ email: { $regex: q, $options: 'i' } })
 
-  const result = await Order.find({ email: { $regex: q ,$options: 'i'} })
- 
   return result
 }
 

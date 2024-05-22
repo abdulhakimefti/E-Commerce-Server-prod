@@ -19,7 +19,7 @@ app.use('/api/orders', OrderRoutes)
 
 //default route
 app.get('/', (req: Request, res: Response) => {
-  res.send('Server is running properly!!')
+  res.send('Server is running properly!!Good to go!!')
 })
 app.all('*', (req: Request, res: Response) => {
   res.status(404).json({
