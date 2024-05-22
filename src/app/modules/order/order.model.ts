@@ -6,6 +6,6 @@ const orderSchema = new Schema<TOrder>({
   productId: { type: String, required: [true, 'ProductId is required'] },
   price: { type: Number, required: [true, 'Price is required'] },
   quantity: { type: Number, required: [true, 'Quantity is required'] },
-})
+},{versionKey:false})
 
 export const Order = model<TOrder>('Order', orderSchema)
